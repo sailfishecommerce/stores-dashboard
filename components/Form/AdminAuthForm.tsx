@@ -1,7 +1,7 @@
 import { Formik } from 'formik'
 
 import { displayFormElement } from '@/components/Form/FormElement'
-import { adminSigninFormSchema } from '@/components/Form/schema/AuthSchema'
+import { adminSigninFormSchema } from '@/components/Form/Schema/AuthSchema'
 import useAuthMutation from '@/hooks/useAuthMutation'
 import formContent from '@/json/admin-login-form.json'
 

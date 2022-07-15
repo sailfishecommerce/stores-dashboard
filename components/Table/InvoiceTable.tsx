@@ -27,7 +27,7 @@ export default function InvoiceTable({
     headerGroups,
     selectedFlatRows,
     state: { selectedRowIds },
-  } = tableInstance;
+  }: any = tableInstance;
 
   const selectedIds: any = [];
 

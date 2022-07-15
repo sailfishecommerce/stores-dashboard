@@ -5,9 +5,9 @@ import { useRouter } from "next/router";
 import type { PropsWithChildren } from "react";
 import { useEffect } from "react";
 
-import DashboardProfile from "@/components/Dashboard/DashboardProfile";
-import DashboardSidebar from "@/components/Dashboard/DashboardSidebar";
-import DefaultLayout from "@/layouts/default-layout";
+import DashboardProfile from "@/components/DashboardProfile";
+import DashboardSidebar from "@/components/DashboardSidebar";
+import DefaultLayout from "@/layout/default-layout";
 import { adminAuthAtom } from "@/utils/atomConfig";
 
 import "react-toastify/dist/ReactToastify.css";
