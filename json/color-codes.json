@@ -1,0 +1,64 @@
+[
+  {
+    "colorName": "mountain-green",
+    "colorCode": "#95bf11",
+    "colorKey": "color-1"
+  },
+  {
+    "colorName": "mountain-mist",
+    "colorCode": "#678800",
+    "colorKey": "color-2"
+  },
+  { "colorName": "tan-hide", "colorCode": "#faa916", "colorKey": "color-3" },
+  {
+    "colorName": "tan-light-hide",
+    "colorCode": "#ffe690",
+    "colorKey": "color-4"
+  },
+  {
+    "colorName": "tan-deep-hide",
+    "colorCode": "#ed9b09",
+    "colorKey": "color-5"
+  },
+  {
+    "colorName": "gray-manatee",
+    "colorCode": "#9e9aa6",
+    "colorKey": "color-6"
+  },
+  {
+    "colorName": "gray-lavender",
+    "colorCode": "#c3c0c8",
+    "colorKey": "color-7"
+  },
+  {
+    "colorName": "gray-platinum",
+    "colorCode": "#e7e6e9",
+    "colorKey": "color-8"
+  },
+  { "colorName": "light-gray", "colorCode": "#f7f8fa", "colorKey": "color-9" },
+  {
+    "colorName": "light-red",
+    "colorCode": "#fd121240",
+    "colorKey": "color-10"
+  },
+  {
+    "colorName": "light-green",
+    "colorCode": "#16a26740",
+    "colorKey": "color-11"
+  },
+  {
+    "colorName": "pale-red",
+    "colorCode": "#ed4444",
+    "colorKey": "color-12"
+  },
+  {
+    "colorName": "White",
+    "colorCode": "#ffffff",
+    "colorKey": "color-13"
+  },
+  {
+    "colorName": "Black",
+    "colorCode": "#000000",
+    "colorKey": "color-14"
+  }
+]

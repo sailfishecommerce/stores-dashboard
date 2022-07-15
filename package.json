@@ -9,9 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "airtable": "^0.11.4",
+    "axios": "^0.27.2",
+    "draft-js": "^0.11.7",
+    "file-saver": "^2.0.5",
+    "firebase": "^9.9.0",
+    "jotai": "^1.7.4",
+    "jszip": "^3.10.0",
     "next": "12.2.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-draft-wysiwyg": "^1.14.7",
+    "react-icons": "^4.4.0",
+    "react-query": "^3.39.1",
+    "react-table": "^7.8.0",
+    "react-toastify": "^9.0.5"
   },
   "devDependencies": {
     "@types/node": "18.0.4",
