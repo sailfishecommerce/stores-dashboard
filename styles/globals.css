@@ -4,3 +4,111 @@
 /* Your own custom component styles */
 
 @import "tailwindcss/utilities";
+
+/* utilities */
+.strike-through {
+  text-decoration: line-through;
+}
+.mountain-green {
+  color: var(--color-1);
+}
+
+.hover-mountain-green:hover {
+  background-color: var(--color-1);
+}
+
+.mountain-green:hover {
+  color: var(--color-2);
+}
+
+.mountain-mist {
+  color: var(--color-2);
+}
+
+.tan-hide {
+  color: var(--color-3);
+}
+
+.gray-manatee {
+  color: var(--color-6);
+}
+
+.gray-lavender {
+  color: var(--color-7);
+}
+
+.gray-platinum {
+  color: var(--color-8);
+}
+
+.bg-light-gray {
+  background-color: var(--color-9);
+}
+
+.bg-mountain-green {
+  background-color: var(--color-1);
+}
+
+.bg-mountain-green:hover {
+  background-color: var(--color-2);
+}
+
+.bg-mountain-mist {
+  background-color: var(--color-2);
+}
+
+.bg-mountain-mist:hover {
+  background-color: var(--color-1);
+}
+
+.bg-stone-black {
+  background-color: var(--color-14);
+}
+
+.white {
+  color: var(--color-13);
+}
+
+.bg-white {
+  background-color: var(--color-13);
+}
+
+.bg-tan-hide {
+  background-color: var(--color-3);
+}
+.bg-tan-hide:hover {
+  background-color: var(--color-5);
+}
+.bg-gray-manatee {
+  background-color: var(--color-6);
+}
+
+.bg-gray-lavender {
+  background-color: var(--color-7);
+}
+
+.bg-gray-platinum {
+  background-color: var(--color-8);
+}
+
+/* border */
+.border-mountain-green {
+  border: 1px solid var(--color-1);
+  color: white;
+}
+.border-mountain-green:hover {
+  background-color: 1px solid var(--color-1);
+  color: white;
+}
+
+.border-tan-hide {
+  border: 1px solid var(--color-3);
+  color: white;
+}
+.border-tan-hide:hover {
+  background-color: var(--color-3);
+  color: white;
+}
+.height-fit-content {
+  height: fit-content;
+}
