@@ -1,4 +1,4 @@
-import DashboardLinks from "@/components/DashboardLinks";
+import DashboardLinks from "@/components/Dashboard/DashboardLinks";
 import Logo from "@/components/Logo";
 
 export default function DashboardSidebar() {

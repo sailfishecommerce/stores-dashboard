@@ -3,7 +3,7 @@ import type { PropsWithChildren } from "react";
 import { BsArrowLeft } from "react-icons/bs";
 
 import Button from "@/components/Button";
-import DashboardSearch from "@/components/DashboardSearch";
+import DashboardSearch from "@/components/Dashboard/DashboardSearch";
 
 export default function DashboardMainView({
   children,
