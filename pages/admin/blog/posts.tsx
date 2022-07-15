@@ -2,14 +2,14 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
-import DashboardMainView from "@/components/DashboardMainView";
-import SpinnerRipple from "@/components/Loader/SpinnerLoader";
+import DashboardMainView from "@/components/Dashboard/DashboardMainView";
+import SpinnerRipple from "@/components/Loader/SpinnerRipple";
 import useBlogTable from "@/hooks/useBlogTable";
 import DashboardLayout from "@/layouts/dashboard-layout";
 
 const DynamicBlogTable = dynamic(
   () =>
-    import(/* webpackChunkName: 'BlogTable' */ "@/components/Blog/BlogTable")
+    import(/* webpackChunkName: 'BlogTable' */ "@/components/Table/BlogTable")
 );
 
 export default function BlogPosts() {

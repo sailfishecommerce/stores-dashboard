@@ -1,6 +1,6 @@
 import BlogAuthorForm from "@/components/Blog/BlogAuthorForm";
 import BlogAuthorsList from "@/components/Blog/BlogAuthorsList";
-import DashboardMainView from "@/components/DashboardMainView";
+import DashboardMainView from "@/components/Dashboard/DashboardMainView";
 import DashboardLayout from "@/layouts/dashboard-layout";
 
 export default function BlogAuthor() {

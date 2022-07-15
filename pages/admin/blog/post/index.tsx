@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-import DashboardMainView from "@/components/DashboardMainView";
+import DashboardMainView from "@/components/Dashboard/DashboardMainView";
 import TextInput from "@/components/Form/TextInput";
 import useDatabaseData from "@/hooks/useDatabaseData";
 import DashboardLayout from "@/layouts/dashboard-layout";
@@ -12,7 +12,7 @@ import DashboardLayout from "@/layouts/dashboard-layout";
 const DynamicDashboardEditor = dynamic(
   () =>
     import(
-      /* webpackChunkName: 'DashboardEditor' */ "@/components/DashboardEditor"
+      /* webpackChunkName: 'DashboardEditor' */ "@/components/Dashboard/DashboardEditor"
     ),
   {
     ssr: false,

@@ -3,11 +3,10 @@ import { useAtom } from "jotai";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 
-import DashboardMainView from "@/components/DashboardMainView";
-import SpinnerRipple from "@/components/Loader/SpinnerLoader";
+import DashboardMainView from "@/components/Dashboard/DashboardMainView";
+import SpinnerRipple from "@/components/Loader/SpinnerRipple";
 import { useOrderInvoice } from "@/hooks/useAdminOrder";
 import DashboardLayout from "@/layouts/dashboard-layout";
-import { SearchPageLayout } from "@/layouts/search-page-layout";
 import { airwallexAdminPaymentAtom } from "@/utils/atomConfig";
 
 const DynamicAirwallexInvoice = dynamic(
@@ -47,20 +46,18 @@ export default function InvoicePage(props: any) {
   }
 
   return (
-    <SearchPageLayout {...props}>
-      <DashboardLayout title="Invoice page">
-        <DashboardMainView>
-          {status === "error" ? (
-            "unable to fetch page data"
-          ) : status === "loading" ? (
-            <SpinnerRipple centerRipple />
-          ) : invoice !== undefined ? (
-            <DynamicInvoice invoice={invoice[0]} />
-          ) : (
-            <DynamicAirwallexInvoice invoice={airwallexInvoice[0]} />
-          )}
-        </DashboardMainView>
-      </DashboardLayout>
-    </SearchPageLayout>
+    <DashboardLayout title="Invoice page">
+      <DashboardMainView>
+        {status === "error" ? (
+          "unable to fetch page data"
+        ) : status === "loading" ? (
+          <SpinnerRipple centerRipple />
+        ) : invoice !== undefined ? (
+          <DynamicInvoice invoice={invoice[0]} />
+        ) : (
+          <DynamicAirwallexInvoice invoice={airwallexInvoice[0]} />
+        )}
+      </DashboardMainView>
+    </DashboardLayout>
   );
 }

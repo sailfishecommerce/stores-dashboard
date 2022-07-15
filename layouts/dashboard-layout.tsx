@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 import DashboardProfile from "@/components/DashboardProfile";
 import DashboardSidebar from "@/components/DashboardSidebar";
-import DefaultLayout from "@/layout/default-layout";
+import DefaultLayout from "@/layouts/default-layout";
 import { adminAuthAtom } from "@/utils/atomConfig";
 
 import "react-toastify/dist/ReactToastify.css";

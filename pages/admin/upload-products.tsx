@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 
-import DashboardMainView from "@/components/DashboardMainView";
+import DashboardMainView from "@/components/Dashboard/DashboardMainView";
 import DashboardLayout from "@/layouts/dashboard-layout";
 
 const DynamicUploadToSwellFromAirtable = dynamic(

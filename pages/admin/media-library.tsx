@@ -1,4 +1,4 @@
-import DashboardMainView from "@/components/DashboardMainView";
+import DashboardMainView from "@/components/Dashboard/DashboardMainView";
 import Dropzonebar from "@/components/Dropzonebar";
 import MediaView from "@/components/MediaImage/MediaView";
 import useMediaUpload from "@/hooks/useMediaUpload";

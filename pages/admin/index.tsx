@@ -2,11 +2,11 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
-import DashboardCard from "@/components/DashboardCard";
-import DashboardMainView from "@/components/DashboardMainView";
-import SpinnerRipple from "@/components/Loader/SpinnerLoader";
+import DashboardCard from "@/components/Dashboard/DashboardCard";
+import DashboardMainView from "@/components/Dashboard/DashboardMainView";
+import SpinnerRipple from "@/components/Loader/SpinnerRipple";
 import useAdminOrder from "@/hooks/useAdminOrder";
-import DashboardLayout from "@/layout/dashboard-layout";
+import DashboardLayout from "@/layouts/dashboard-layout";
 
 const DynamicInvoiceTable = dynamic(
   () =>

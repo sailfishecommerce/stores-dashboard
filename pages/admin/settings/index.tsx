@@ -1,5 +1,5 @@
 import SplittedView from "@/components/Admin/SplittedView";
-import DashboardMainView from "@/components/DashboardMainView";
+import DashboardMainView from "@/components/Dashboard/DashboardMainView";
 import settingsList from "@/json/settings.json";
 import DashboardLayout from "@/layouts/dashboard-layout";
 

@@ -1,8 +1,8 @@
 /* eslint-disable no-nested-ternary */
 import dynamic from "next/dynamic";
 
-import DashboardMainView from "@/components/DashboardMainView";
-import SpinnerRipple from "@/components/Loader/SpinnerLoader";
+import DashboardMainView from "@/components/Dashboard/DashboardMainView";
+import SpinnerRipple from "@/components/Loader/SpinnerRipple";
 import useDatabaseData from "@/hooks/useDatabaseData";
 import DashboardLayout from "@/layouts/dashboard-layout";
 

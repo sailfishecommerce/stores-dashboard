@@ -4,8 +4,8 @@ import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
 import { BiDownload } from "react-icons/bi";
 
-import DashboardMainView from "@/components/DashboardMainView";
-import SpinnerRipple from "@/components/Loader/SpinnerLoader";
+import DashboardMainView from "@/components/Dashboard/DashboardMainView";
+import SpinnerRipple from "@/components/Loader/SpinnerRipple";
 import InvoiceTable from "@/components/Table/InvoiceTable";
 import useAdminOrder from "@/hooks/useAdminOrder";
 import useMulipleInvoiceDownload from "@/hooks/useMultipleInvoiceDownload";

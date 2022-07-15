@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 import AdminAuthForm from '@/components/Form/AdminAuthForm'
 import Logo from '@/components/Logo'
-import DefaultLayout from '@/layout/default-layout'
+import DefaultLayout from '@/layouts/default-layout'
 
 export default function AdminLoginPage() {
   return (

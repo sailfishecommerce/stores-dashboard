@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 
 import BlogPostView from "@/components/Blog/BlogPostView";
-import DashboardMainView from "@/components/DashboardMainView";
+import DashboardMainView from "@/components/Dashboard/DashboardMainView";
 import DashboardLayout from "@/layouts/dashboard-layout";
 
 export default function BlogPost() {
