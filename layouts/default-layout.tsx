@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import { ToastContainer } from "react-toastify";
 import type { PropsWithChildren } from "react";
 
 import Metatag from "@/components/Metatag";
@@ -8,7 +8,6 @@ export default function DefaultLayout({
   children,
 }: PropsWithChildren<unknown>) {
   const { siteColors } = useColorPicker();
-  const router = useRouter();
 
   const siteColorcode: { [key: string]: string } = {};
 
@@ -19,11 +18,8 @@ export default function DefaultLayout({
   });
   return (
     <>
-      {!(
-        router?.pathname.includes("collection") ||
-        router?.pathname.includes("vendor") ||
-        router?.pathname.includes("product")
-      ) && <Metatag />}
+      <Metatag />
+      <ToastContainer />
       {children}
       <style global jsx>
         {`

@@ -34,7 +34,7 @@ export default function useAuthMutation() {
             'Account created successfully'
           )
           setAdminAuth(response.user)
-          router.push('/admin')
+          router.push('/')
         },
         onError: (error) => {
           console.log('error', error)
@@ -61,7 +61,7 @@ export default function useAuthMutation() {
             'Account signin successfully'
           )
           setAdminAuth(response.user)
-          router.push('/admin')
+          router.push('/')
         },
         onError: (error) => {
           console.log('error', error)
