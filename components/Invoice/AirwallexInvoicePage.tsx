@@ -2,8 +2,8 @@ import AirwallexInvoiceList from '@/components/Invoice/AirwallexInvoiceList'
 import InvoiceFooter from '@/components/Invoice/InvoiceFooter'
 import Logo from '@/components/Logo'
 import FormattedPrice from '@/components/Price/FormattedPrice'
-import { formatOrderDate } from '@/lib/formatOrderDate'
-import getCountry from '@/lib/getCountry'
+import { formatOrderDate } from '@/utils/formatOrderDate'
+import getCountry from '@/utils/getCountry'
 
 const style = { width: '100%' }
 

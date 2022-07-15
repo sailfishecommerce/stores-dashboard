@@ -1,19 +1,19 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { Document, Page, Text, Image, View } from '@react-pdf/renderer'
+import { Document, Page, Text, Image, View } from "@react-pdf/renderer";
 
-import AirwallexInvoiceListPdf from '@/components/Invoice/AirwallexInvoiceListPdf'
-import InvoicePdfFooter from '@/components/Invoice/InvoicePdfFooter'
-import { styles } from '@/components/Invoice/invoice-style'
-import FormattedPrice from '@/components/Price/FormattedPrice'
-import { formatOrderDate } from '@/lib/formatOrderDate'
-import getCountry from '@/lib/getCountry'
+import AirwallexInvoiceListPdf from "@/components/Invoice/AirwallexInvoiceListPdf";
+import InvoicePdfFooter from "@/components/Invoice/InvoicePdfFooter";
+import { styles } from "@/components/Invoice/invoice-style";
+import FormattedPrice from "@/components/Price/FormattedPrice";
+import { formatOrderDate } from "@/utils/formatOrderDate";
+import getCountry from "@/utils/getCountry";
 
-// import getShippingMethod from '@/lib/shippingMethod'
+// import getShippingMethod from '@/utils/shippingMethod'
 
 export default function AirwallexInvoicePdf({ invoice }: any) {
   // const shippingMethod = getShippingMethod(invoice)
-  const paymentMethod = `Airwallex-${invoice?.latest_payment_attempt?.id.toUpperCase()}`
-  const customerName = `${invoice?.order?.shipping?.first_name} ${invoice.order.shipping.last_name}`
+  const paymentMethod = `Airwallex-${invoice?.latest_payment_attempt?.id.toUpperCase()}`;
+  const customerName = `${invoice?.order?.shipping?.first_name} ${invoice.order.shipping.last_name}`;
 
   return (
     <Document>
@@ -126,5 +126,5 @@ export default function AirwallexInvoicePdf({ invoice }: any) {
         <InvoicePdfFooter />
       </Page>
     </Document>
-  )
+  );
 }

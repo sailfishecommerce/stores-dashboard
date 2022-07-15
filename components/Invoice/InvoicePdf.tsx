@@ -1,19 +1,19 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { Document, Page, Text, Image, View } from '@react-pdf/renderer'
+import { Document, Page, Text, Image, View } from "@react-pdf/renderer";
 
-import InvoiceListPdf from '@/components/Invoice/InvoiceListPdf'
-import InvoicePdfFooter from '@/components/Invoice/InvoicePdfFooter'
-import { styles } from '@/components/Invoice/invoice-style'
-import FormattedPrice from '@/components/Price/FormattedPrice'
-import { formatOrderDate } from '@/lib/formatOrderDate'
-import getCountry from '@/lib/getCountry'
-import getShippingMethod from '@/lib/shippingMethod'
+import InvoiceListPdf from "@/components/Invoice/InvoiceListPdf";
+import InvoicePdfFooter from "@/components/Invoice/InvoicePdfFooter";
+import { styles } from "@/components/Invoice/invoice-style";
+import FormattedPrice from "@/components/Price/FormattedPrice";
+import { formatOrderDate } from "@/utils/formatOrderDate";
+import getCountry from "@/utils/getCountry";
+import getShippingMethod from "@/utils/shippingMethod";
 
 export default function InvoicePdf({ invoice }: any) {
   const paymentMethod = invoice?.billing.intent?.stripe.id
     ? `Stripe ${invoice?.billing?.intent?.stripe.id.toUpperCase()}`
-    : ''
-  const shippingMethod = getShippingMethod(invoice)
+    : "";
+  const shippingMethod = getShippingMethod(invoice);
 
   return (
     <Document>
@@ -64,7 +64,7 @@ export default function InvoicePdf({ invoice }: any) {
             <View>
               <Text style={styles.title}>SHIPPING METHOD</Text>
               <Text style={styles.text}>
-                {shippingMethod !== undefined ? shippingMethod[0]?.name : ''}
+                {shippingMethod !== undefined ? shippingMethod[0]?.name : ""}
               </Text>
               <Text style={styles.text}>COVID-19 might cause delays</Text>
             </View>
@@ -78,13 +78,13 @@ export default function InvoicePdf({ invoice }: any) {
         </View>
         <View>
           {invoice.items.map((item: any) => {
-            let product
+            let product;
             if (invoice.products !== null) {
               product = invoice?.products?.filter(
                 (productItem: any) => productItem.id === item.product_id
-              )[0]
+              )[0];
             } else {
-              product = null
+              product = null;
             }
             return (
               <InvoiceListPdf
@@ -93,7 +93,7 @@ export default function InvoicePdf({ invoice }: any) {
                 item={item}
                 currency={invoice.currency}
               />
-            )
+            );
           })}
         </View>
         <View style={styles.row4}>
@@ -132,5 +132,5 @@ export default function InvoicePdf({ invoice }: any) {
         <InvoicePdfFooter />
       </Page>
     </Document>
-  )
+  );
 }

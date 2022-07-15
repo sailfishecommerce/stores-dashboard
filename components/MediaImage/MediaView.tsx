@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react'
 
-import SpinnerRipple from '@/components/Loader/SpinnerLoader'
+import SpinnerRipple from '@/components/Loader/SpinnerRipple'
 import MediaImage from '@/components/MediaImage'
 import useDatabaseData from '@/hooks/useDatabaseData'
 import paginateData from '@/utils/paginateData'

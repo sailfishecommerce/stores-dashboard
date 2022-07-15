@@ -1,39 +1,39 @@
 /* eslint-disable jsx-a11y/mouse-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable @next/next/no-img-element */
-import { useState } from 'react'
-import { AiFillDelete } from 'react-icons/ai'
-import { IoCopySharp } from 'react-icons/io5'
-import { toast } from 'react-toastify'
+import { useState } from "react";
+import { AiFillDelete } from "react-icons/ai";
+import { IoCopySharp } from "react-icons/io5";
+import { toast } from "react-toastify";
 
-import firebaseDatabase from '@/lib/firebaseDatabase'
+import firebaseDatabase from "@/utils/firebaseDatabase";
 
 interface Props {
   parsedMediaItem: {
-    url: string
-    public_id: string
-    signature: string
-    version: number
-  }
-  imageKey: string
+    url: string;
+    public_id: string;
+    signature: string;
+    version: number;
+  };
+  imageKey: string;
 }
 
 export default function MediaImage({ parsedMediaItem, imageKey }: Props) {
-  const [hover, setHover] = useState(false)
+  const [hover, setHover] = useState(false);
 
-  const { url } = parsedMediaItem
+  const { url } = parsedMediaItem;
 
   function copyImageLinkHandler() {
     navigator.clipboard
       .writeText(parsedMediaItem.url)
-      .then(() => toast.success('image link copied'))
+      .then(() => toast.success("image link copied"));
   }
 
   function deleteImageHandler() {
-    const { deleteItemFromDB } = firebaseDatabase()
+    const { deleteItemFromDB } = firebaseDatabase();
     deleteItemFromDB(`media/${imageKey}`).then(() =>
-      toast.success('image deleted')
-    )
+      toast.success("image deleted")
+    );
   }
 
   return (
@@ -109,5 +109,5 @@ export default function MediaImage({ parsedMediaItem, imageKey }: Props) {
         `}
       </style>
     </>
-  )
+  );
 }

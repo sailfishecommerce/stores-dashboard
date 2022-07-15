@@ -1,18 +1,18 @@
-import InvoiceFooter from '@/components/Invoice/InvoiceFooter'
-import InvoiceList from '@/components/Invoice/InvoiceList'
-import Logo from '@/components/Logo'
-import FormattedPrice from '@/components/Price/FormattedPrice'
-import { formatOrderDate } from '@/lib/formatOrderDate'
-import getCountry from '@/lib/getCountry'
-import getShippingMethod from '@/lib/shippingMethod'
+import InvoiceFooter from "@/components/Invoice/InvoiceFooter";
+import InvoiceList from "@/components/Invoice/InvoiceList";
+import Logo from "@/components/Logo";
+import FormattedPrice from "@/components/Price/FormattedPrice";
+import { formatOrderDate } from "@/utils/formatOrderDate";
+import getCountry from "@/utils/getCountry";
+import getShippingMethod from "@/utils/shippingMethod";
 
-const style = { width: '100%' }
+const style = { width: "100%" };
 
 export default function InvoicePage({ invoice }: any) {
   const paymentMethod = invoice?.billing.intent?.stripe.id
     ? `Stripe ${invoice?.billing?.intent?.stripe.id.toUpperCase()}`
-    : ''
-  const shippingMethod = getShippingMethod(invoice)
+    : "";
+  const shippingMethod = getShippingMethod(invoice);
   return (
     <>
       <div
@@ -74,13 +74,13 @@ export default function InvoicePage({ invoice }: any) {
             </thead>
             <tbody>
               {invoice.items.map((item: any) => {
-                let product
+                let product;
                 if (invoice.products !== null) {
                   product = invoice?.products?.filter(
                     (productItem: any) => productItem.id === item.product_id
-                  )[0]
+                  )[0];
                 } else {
-                  product = null
+                  product = null;
                 }
                 return (
                   <InvoiceList
@@ -89,7 +89,7 @@ export default function InvoicePage({ invoice }: any) {
                     item={item}
                     currency={invoice.currency}
                   />
-                )
+                );
               })}
               <tr className="subtotal">
                 <td></td>
@@ -104,7 +104,7 @@ export default function InvoicePage({ invoice }: any) {
                     className="text-md font-thin"
                   />
                 </td>
-              </tr>{' '}
+              </tr>{" "}
               <tr className="shipping">
                 <td></td>
                 <td></td>
@@ -154,5 +154,5 @@ export default function InvoicePage({ invoice }: any) {
         `}
       </style>
     </>
-  )
+  );
 }

@@ -1,17 +1,17 @@
-import { Text, Image, View } from '@react-pdf/renderer'
+import { Text, Image, View } from "@react-pdf/renderer";
 
-import { itemStyles } from '@/components/Invoice/invoice-style'
-import FormattedPrice from '@/components/Price/FormattedPrice'
+import { itemStyles } from "@/components/Invoice/invoice-style";
+import FormattedPrice from "@/components/Price/FormattedPrice";
 
 export default function AirwallexInvoiceListPdf({ currency, product }: any) {
-  const itemTotal = product.quantity * product.unit_price
+  const itemTotal = product.quantity * product.unit_price;
   return (
     <>
       <View style={itemStyles.itemRow}>
         <View style={itemStyles.imageRow}>
           <Image
             src={product.url}
-            alt={product.name}
+            // alt={product.name}
             style={itemStyles.image}
           />
           <View>
@@ -34,5 +34,5 @@ export default function AirwallexInvoiceListPdf({ currency, product }: any) {
         </Text>
       </View>
     </>
-  )
+  );
 }
