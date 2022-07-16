@@ -33,7 +33,7 @@ export default function DashboardLayout({
     <DefaultLayout>
       <div className="admin w-full grid grid-cols-6 bg-white">
         <Head>
-          <title>Live healthy stores | {title}</title>
+          <title>Admin | Live healthy stores | {title}</title>
         </Head>
         <DashboardSidebar />
         {children}

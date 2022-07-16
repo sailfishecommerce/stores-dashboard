@@ -2,7 +2,7 @@
   {
     "icon": "dashboard",
     "text": "Dashboard",
-    "link": "/admin"
+    "link": "/"
   },
   {
     "icon": "invoice",

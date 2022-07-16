@@ -12,7 +12,10 @@ const DynamicInvoiceTable = dynamic(
   () =>
     import(
       /* webpackChunkName: 'InvoiceTable' */ "@/components/Table/InvoiceTable"
-    )
+    ),
+  {
+    ssr: false,
+  }
 );
 
 export default function Admin() {
