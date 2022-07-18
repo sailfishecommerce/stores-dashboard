@@ -1,10 +1,22 @@
-import Image from 'next/image'
+import Image from "next/image";
 
-import AdminAuthForm from '@/components/Form/AdminAuthForm'
-import Logo from '@/components/Logo'
-import DefaultLayout from '@/layouts/default-layout'
+import AdminAuthForm from "@/components/Form/AdminAuthForm";
+import Logo from "@/components/Logo";
+import DefaultLayout from "@/layouts/default-layout";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { adminAuthAtom } from "@/utils/atomConfig";
+import { useAtom } from "jotai";
 
 export default function AdminLoginPage() {
+  const router = useRouter();
+  const [adminAuth] = useAtom(adminAuthAtom);
+
+  useEffect(() => {
+    if (adminAuth !== null) {
+      router.push("/");
+    }
+  }, []);
   return (
     <DefaultLayout>
       <div className="w-full h-full flex login-page">
@@ -42,5 +54,5 @@ export default function AdminLoginPage() {
         `}
       </style>
     </DefaultLayout>
-  )
+  );
 }

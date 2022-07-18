@@ -1,9 +1,14 @@
+import dynamic from 'next/dynamic'
+
 import AirwallexInvoiceList from '@/components/Invoice/AirwallexInvoiceList'
 import InvoiceFooter from '@/components/Invoice/InvoiceFooter'
-import Logo from '@/components/Logo'
 import FormattedPrice from '@/components/Price/FormattedPrice'
 import { formatOrderDate } from '@/utils/formatOrderDate'
 import getCountry from '@/utils/getCountry'
+
+const DynamicLogo = dynamic(() => import("@/components/Logo"), {
+  ssr: false,
+});
 
 const style = { width: '100%' }
 
@@ -17,7 +22,7 @@ export default function AirwallexInvoicePage({ invoice }: any) {
         className="invoice-receipt my-12 bg-white p-6 rounded-xl"
       >
         <div className="row flex justify-between mb-16 items-center">
-          <Logo className="w-1/6" />
+          <DynamicLogo className="w-1/6" />
           <div className="invoice-date flex flex-col">
             <h1 className="text-2xl font-bold">{invoice?.id.toUpperCase()}</h1>
             <h5 className="font-thin text-lg">
@@ -93,7 +98,7 @@ export default function AirwallexInvoicePage({ invoice }: any) {
                     className="text-md font-thin"
                   />
                 </td>
-              </tr>{' '}
+              </tr>{" "}
               <tr className="shipping">
                 <td></td>
                 <td></td>
@@ -143,5 +148,5 @@ export default function AirwallexInvoicePage({ invoice }: any) {
         `}
       </style>
     </>
-  )
+  );
 }
