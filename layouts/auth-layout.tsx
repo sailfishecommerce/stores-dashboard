@@ -10,7 +10,7 @@ export default function AuthLayout({ children }: PropsWithChildren<{}>) {
   const [adminAuth] = useAtom(adminAuthAtom);
 
   useEffect(() => {
-    if (adminAuth !== null) {
+    if (adminAuth !== null && router.asPath === "/admin/login") {
       router.replace("/", undefined, { shallow: true });
     }
   }, [adminAuth]);

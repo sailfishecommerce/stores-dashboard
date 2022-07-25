@@ -14,6 +14,7 @@ interface DropzonebarType {
   style: unknown;
   uploadStatus: boolean | null;
   message?: string;
+  active?: boolean;
 }
 
 export default function Dropzonebar({
@@ -23,6 +24,7 @@ export default function Dropzonebar({
   fileType,
   uploadStatus,
   message,
+  active,
 }: DropzonebarType) {
   const { getRootProps, acceptedFiles, getInputProps, isDragActive } = dropzone;
   let percentage: any;
@@ -81,6 +83,8 @@ export default function Dropzonebar({
             width: 100%;
             background-color: ${isDragActive
               ? "var(--color-3)"
+              : active
+              ? "var(--color-8)"
               : "var(--color-4)"};
             padding: 10px;
             margin-top: 10px;

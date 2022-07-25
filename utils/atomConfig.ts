@@ -3,7 +3,6 @@ import { atomWithStorage } from "jotai/utils";
 
 import type { blogFormDataType } from "@/typings";
 
-
 // ui-state
 export const appLoadingAtom = atom(false);
 export const countryAtom = atom<{ country: string } | null>(null);
@@ -38,3 +37,6 @@ export const blogAuthorFormAtom = atom<blogFormDataType>({
     aboutAuthor: "",
   },
 });
+
+//
+export const selectStoreAtom = atom(null);

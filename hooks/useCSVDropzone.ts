@@ -13,7 +13,10 @@ type uploadCSVType = (
   setIsUploadSuccessful: any
 ) => void;
 
-export default function useCSVDropzone(uploadCSV: uploadCSVType) {
+export default function useCSVDropzone(
+  uploadCSV: uploadCSVType,
+  disableDropzone?: boolean
+) {
   const [isUploadSuccessful, setIsUploadSuccessful] = useState(null);
 
   const [progress, setProgress] = useState({
@@ -35,6 +38,7 @@ export default function useCSVDropzone(uploadCSV: uploadCSVType) {
   }, []);
 
   const dropzone = useDropzone({
+    disabled: disableDropzone,
     onDrop,
     accept: {
       ".csv": [
