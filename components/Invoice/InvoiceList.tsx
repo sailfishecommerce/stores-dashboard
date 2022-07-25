@@ -4,8 +4,6 @@ import { useCallback } from "react";
 import FormattedPrice from "@/components/Price/FormattedPrice";
 
 export default function InvoiceList({ currency, product, item }: any) {
-  console.log("product", product);
-
   const productImageCallback = useCallback(() => {
     return typeof product?.images[0] === "string"
       ? product?.images[0]
@@ -16,7 +14,7 @@ export default function InvoiceList({ currency, product, item }: any) {
   return (
     <>
       {product !== undefined || product !== null ? (
-        <tr className="view">
+        <tr className="view hover:bg-gray-100 border-b py-2">
           <td className="w-1/2">
             <div className="product-view flex items-center">
               <Image
@@ -26,8 +24,8 @@ export default function InvoiceList({ currency, product, item }: any) {
                 width={200}
               />
               <div className="content flex flex-col ml-2">
-                <h1 className="font-thin  text-md">{product?.name}</h1>
-                <p className="font-thin text-md mt-2">SKU {product?.sku}</p>
+                <h1 className="font-medium  text-md">{product?.name}</h1>
+                <p className="font-medium text-md mt-2">SKU {product?.sku}</p>
               </div>
             </div>
           </td>
@@ -44,17 +42,17 @@ export default function InvoiceList({ currency, product, item }: any) {
                 <FormattedPrice
                   currency={currency}
                   price={item.price}
-                  className="text-md font-thin"
+                  className="text-md font-medium"
                 />
               </div>
             )}
           </td>
           <td className="w-1/6 text-cventer">
-            <p className="font-thin text-md quantity">{item.quantity}</p>
+            <p className="font-medium text-md quantity">{item.quantity}</p>
           </td>
           <td className="w-1/6 text-center">
             <FormattedPrice
-              className="text-md font-thin"
+              className="text-md font-medium"
               price={item?.price_total}
               currency={currency}
             />

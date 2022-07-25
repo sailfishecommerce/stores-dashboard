@@ -49,8 +49,8 @@ export default function BlogTable({ columns, data }: any) {
           prepareRow(row);
           const rowTitle = toSlug(row.original.title);
           return (
-            <tr key={i} {...row.getRowProps()}>
-              <td className="border-b py-4 text-center hover:bg-gray-100">
+            <tr key={i} {...row.getRowProps()} className="hover:bg-gray-100">
+              <td className="border-b py-4 text-center">
                 {i + 1}
               </td>
               {row.cells.map((cell: any, index: number) => {
@@ -58,7 +58,7 @@ export default function BlogTable({ columns, data }: any) {
                 return (
                   <td
                     key={index}
-                    className="border-b py-4 text-center hover:bg-gray-100"
+                    className="border-b py-4 text-center"
                     {...cell.getCellProps()}
                   >
                     <Link passHref href={`/admin/blog/post/${titleSlug}`}>
@@ -67,7 +67,7 @@ export default function BlogTable({ columns, data }: any) {
                   </td>
                 );
               })}
-              <td className="border-b py-4 text-center hover:bg-gray-100">
+              <td className="border-b py-4 text-center">
                 <button
                   type="button"
                   onClick={() => deletePost(`articles/blog/post/${rowTitle}`)}

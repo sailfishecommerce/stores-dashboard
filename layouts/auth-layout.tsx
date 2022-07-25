@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 import { PropsWithChildren, useEffect } from "react";
+import { useAtom } from "jotai";
 
 import AdminLoginPage from "@/pages/admin/login";
 import { adminAuthAtom } from "@/utils/atomConfig";
-import { useAtom } from "jotai";
 
 export default function AuthLayout({ children }: PropsWithChildren<{}>) {
   const router = useRouter();

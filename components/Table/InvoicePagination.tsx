@@ -1,37 +1,37 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/no-onchange */
 
-const paginationArray = ['<<', '<', '>', '>>']
+const paginationArray = ["<<", "<", ">", ">>"];
 
 function paginationHandler(indexCount: number, tableInstance: any) {
-  const { gotoPage, previousPage, nextPage, pageCount } = tableInstance
+  const { gotoPage, previousPage, nextPage, pageCount } = tableInstance;
   switch (indexCount) {
     case 0:
-      return gotoPage(0)
+      return gotoPage(0);
     case 1:
-      return previousPage()
+      return previousPage();
     case 2:
-      return nextPage()
+      return nextPage();
     case 3:
-      return gotoPage(pageCount - 1)
+      return gotoPage(pageCount - 1);
     default:
-      return null
+      return null;
   }
 }
 
 function disablePagination(indexCount: number, tableInstance: any): boolean {
-  const { canPreviousPage, canNextPage } = tableInstance
+  const { canPreviousPage, canNextPage } = tableInstance;
   switch (indexCount) {
     case 0:
-      return !canPreviousPage
+      return !canPreviousPage;
     case 1:
-      return !canPreviousPage
+      return !canPreviousPage;
     case 2:
-      return !canNextPage
+      return !canNextPage;
     case 3:
-      return !canNextPage
+      return !canNextPage;
     default:
-      return false
+      return false;
   }
 }
 
@@ -41,7 +41,7 @@ export default function InvoicePagination({ tableInstance }: any): JSX.Element {
     pageOptions,
     setPageSize,
     state: { pageIndex, pageSize },
-  } = tableInstance
+  } = tableInstance;
   return (
     <>
       <div className="pagination flex items-center mx-auto justify-center">
@@ -49,7 +49,7 @@ export default function InvoicePagination({ tableInstance }: any): JSX.Element {
           <button
             key={index}
             type="button"
-            className="hover:bg-red-400 hover:text-white"
+            className="hover:bg-red-800 hover:text-red-500"
             disabled={disablePagination(index, tableInstance)}
             onClick={() => paginationHandler(index, tableInstance)}
           >
@@ -66,13 +66,13 @@ export default function InvoicePagination({ tableInstance }: any): JSX.Element {
         <span className="ml-2">
           | Go to page:
           <input
-            style={{ width: '100px' }}
+            style={{ width: "100px" }}
             type="number"
             className="mx-2 text-center w-10 border "
             defaultValue={pageIndex + 1}
             onChange={(e) => {
-              const pageVal = e.target.value ? Number(e.target.value) - 1 : 0
-              gotoPage(pageVal)
+              const pageVal = e.target.value ? Number(e.target.value) - 1 : 0;
+              gotoPage(pageVal);
             }}
           />
         </span>
@@ -80,7 +80,7 @@ export default function InvoicePagination({ tableInstance }: any): JSX.Element {
           value={pageSize}
           onChange={(e) => setPageSize(Number(e.target.value))}
         >
-          {[10, 20, 30, 40, 50].map((pageSizeVal) => (
+          {[10, 15, 20, 25, 30].map((pageSizeVal) => (
             <option key={pageSizeVal} value={pageSizeVal}>
               Show {pageSizeVal}
             </option>
@@ -101,5 +101,5 @@ export default function InvoicePagination({ tableInstance }: any): JSX.Element {
         `}
       </style>
     </>
-  )
+  );
 }

@@ -11,7 +11,7 @@ export default function DashboardMainView({
   const router = useRouter();
   return (
     <>
-      <div className="bg-gray-100 col-span-4 px-8 main">
+      <div className="bg-gray-100 col-span-4 px-8 main pt-6">
         <DashboardSearch />
         <div className="dashboard-content relative mt-3">
           {router.pathname === "/admin/invoice/[id]" && (

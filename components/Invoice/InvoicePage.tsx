@@ -23,7 +23,7 @@ export default function InvoicePage({ invoice }: any) {
           <Logo className="w-1/6" />
           <div className="invoice-date flex flex-col">
             <h1 className="text-2xl font-bold">{invoice?.number}</h1>
-            <h5 className="font-thin text-lg">
+            <h5 className="font-light text-lg">
               {formatOrderDate(invoice?.date_created)}
             </h5>
           </div>
@@ -31,34 +31,30 @@ export default function InvoicePage({ invoice }: any) {
         <div className="row details grid grid-cols-3">
           <div className="shipping-address">
             <h1 className="font-semibold text-lg my-2">SHIPPING ADDRESS</h1>
-            <p className="font-thin">
-              {invoice?.shipping.address1},{invoice?.shipping.address2}
-            </p>
-            <p className="font-thin">
-              {invoice?.shipping.zip} {invoice?.shipping.city}
-              {invoice?.shipping.state}
-            </p>
-            <p className="font-thin">{getCountry(invoice?.shipping.country)}</p>
+            <p className="font-light">Flat B, 16/F-Tower 7, </p>
+            <p className="font-light">The Beaumount, 8 Shek Kok Road,</p>
+            <p className="font-light">Kennedy town,</p>
+            <p className="font-light">Hong Kong</p>
           </div>
           <div className="customer">
             <h1 className="font-semibold text-lg my-2">CUSTOMER</h1>
-            <p className="font-thin">{invoice.billing.name}</p>
-            <p className="font-thin">{invoice.billing.address1}</p>
-            <p className="font-thin">{invoice.billing.address2}</p>
-            <p className="font-thin">{`${invoice.billing.zip} ${invoice.billing.city}`}</p>
-            <p className="font-thin">
+            <p className="font-light">{invoice.billing.name}</p>
+            <p className="font-light">{invoice.billing.address1}</p>
+            <p className="font-light">{invoice.billing.address2}</p>
+            <p className="font-light">{`${invoice.billing.zip} ${invoice.billing.city}`}</p>
+            <p className="font-light">
               {invoice.billing.city} {getCountry(invoice.billing.country)}
             </p>
           </div>
           <div className="group">
             <div className="payment-method">
               <h1 className="font-semibold text-lg my-2">PAYMENT METHOD</h1>
-              <p className="font-thin">{paymentMethod}</p>
+              <p className="font-light">{paymentMethod}</p>
             </div>
             <div className="shipping-method">
               <h1 className="font-semibold text-lg my-2">SHIPPING METHOD</h1>
-              <p className="font-thin">{shippingMethod[0]?.name}</p>
-              <p className="font-thin">COVID-19 might cause delays</p>
+              <p className="font-light">{shippingMethod[0]?.name}</p>
+              <p className="font-light">COVID-19 might cause delays</p>
             </div>
           </div>
         </div>
@@ -95,13 +91,13 @@ export default function InvoicePage({ invoice }: any) {
                 <td></td>
                 <td></td>
                 <td className="text-center">
-                  <p className="font-thin text-md">Subtotal</p>
+                  <p className="font-medium text-md">Subtotal</p>
                 </td>
                 <td className="text-center">
                   <FormattedPrice
                     currency={invoice.currency}
                     price={invoice.sub_total}
-                    className="text-md font-thin"
+                    className="text-md font-medium"
                   />
                 </td>
               </tr>{" "}
@@ -109,13 +105,13 @@ export default function InvoicePage({ invoice }: any) {
                 <td></td>
                 <td></td>
                 <td className="text-center">
-                  <p className="font-thin text-md">Shipping</p>
+                  <p className="font-medium text-md">Shipping</p>
                 </td>
                 <td className="text-center">
                   <FormattedPrice
                     currency={invoice.currency}
                     price={invoice.shipment_total}
-                    className="text-md font-thin"
+                    className="text-md font-medium"
                   />
                 </td>
               </tr>
