@@ -1,23 +1,20 @@
 import { useRouter } from "next/router";
 import { PropsWithChildren, useEffect } from "react";
 
-interface Props {
-  auth: any;
-}
+import AdminLoginPage from "@/pages/admin/login";
+import { adminAuthAtom } from "@/utils/atomConfig";
+import { useAtom } from "jotai";
 
-export default function AuthLayout({
-  children,
-  auth,
-}: PropsWithChildren<Props>) {
+export default function AuthLayout({ children }: PropsWithChildren<{}>) {
   const router = useRouter();
-
-  console.log("adminAuth", auth);
+  const [adminAuth] = useAtom(adminAuthAtom);
 
   useEffect(() => {
-    console.log("useEffect");
-    if (auth !== null) {
+    if (adminAuth !== null) {
       router.replace("/", undefined, { shallow: true });
     }
-  }, [auth]);
+  }, [adminAuth]);
+
+  if (adminAuth === null) return <AdminLoginPage />;
   return <>{children}</>;
 }
