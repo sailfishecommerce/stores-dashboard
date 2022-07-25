@@ -1,26 +1,28 @@
-import { Formik } from 'formik'
+import { Formik } from "formik";
 
-import { displayFormElement } from '@/components/Form/FormElement'
-import { adminSigninFormSchema } from '@/components/Form/Schema/AuthSchema'
-import useAuthMutation from '@/hooks/useAuthMutation'
-import formContent from '@/json/admin-login-form.json'
+import { displayFormElement } from "@/components/Form/FormElement";
+import { adminSigninFormSchema } from "@/components/Form/Schema/AuthSchema";
+import useAuthMutation from "@/hooks/useAuthMutation";
+import formContent from "@/json/admin-login-form.json";
+import { useEffect } from "react";
 
 interface Props {
-  type: 'signin' | 'signup'
+  type: "signin" | "signup";
 }
 
 export default function AdminAuthForm({ type }: Props) {
-  const { useAdminSignin, useAdminSignUp } = useAuthMutation()
-  const adminSignin = useAdminSignin()
-  const adminSignup = useAdminSignUp()
+  const { useAdminSignin, useAdminSignUp } = useAuthMutation();
+  const adminSignin = useAdminSignin();
+  const adminSignup = useAdminSignUp();
 
-  const authFunc = type === 'signin' ? adminSignin : adminSignup
-  const buttonText = type === 'signin' ? 'Sign In' : 'Sign Up'
+  const authFunc = type === "signin" ? adminSignin : adminSignup;
+  const buttonText = type === "signin" ? "Sign In" : "Sign Up";
+
   return (
     <Formik
       initialValues={{
-        email: '',
-        password: '',
+        email: "",
+        password: "",
       }}
       validationSchema={adminSigninFormSchema}
       onSubmit={({ email, password }) => authFunc.mutate({ email, password })}
@@ -49,5 +51,5 @@ export default function AdminAuthForm({ type }: Props) {
         </form>
       )}
     </Formik>
-  )
+  );
 }

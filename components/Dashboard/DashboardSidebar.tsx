@@ -9,7 +9,7 @@ const DynamicLogo = dynamic(() => import("@/components/Logo"), {
 export default function DashboardSidebar() {
   return (
     <div className="flex flex-col pl-6 pt-8">
-      <DynamicLogo className="w-1/2" />
+      <DynamicLogo className="w-2/3 block mx-auto" />
       <DashboardLinks />
     </div>
   );

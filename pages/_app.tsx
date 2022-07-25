@@ -1,11 +1,12 @@
 import { QueryClient, QueryClientProvider } from "react-query";
-import { atom, Provider as JotaiProvider, useAtom } from "jotai";
+import { Provider as JotaiProvider, useAtom } from "jotai";
 
 import type { AppProps } from "next/app";
+import { adminAuthAtom } from "@/utils/atomConfig";
+import AdminLoginPage from "@/pages/admin/login";
+import AuthLayout from "@/layouts/auth-layout";
 import "@/styles/globals.css";
 import "react-toastify/dist/ReactToastify.css";
-import { adminAuthAtom } from "@/utils/atomConfig";
-import AdminLoginPage from "./admin/login";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
@@ -14,7 +15,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient} contextSharing={true}>
       <JotaiProvider>
-        {adminAuth !== null ? <Component {...pageProps} /> : <AdminLoginPage />}
+        <AuthLayout auth={adminAuth}>
+          {adminAuth !== null ? (
+            <Component {...pageProps} />
+          ) : (
+            <AdminLoginPage />
+          )}
+        </AuthLayout>
       </JotaiProvider>
     </QueryClientProvider>
   );

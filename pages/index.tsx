@@ -22,6 +22,7 @@ export default function Admin() {
   const { data, status } = useAdminOrder();
 
   const dataResult = data?.data?.results;
+
   return (
     <DashboardLayout title="Admin page">
       <DashboardMainView>
