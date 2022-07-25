@@ -1,16 +1,18 @@
-import Image from 'next/image'
-import { useCallback } from 'react'
+import Image from "next/image";
+import { useCallback } from "react";
 
-import FormattedPrice from '@/components/Price/FormattedPrice'
+import FormattedPrice from "@/components/Price/FormattedPrice";
 
 export default function InvoiceList({ currency, product, item }: any) {
-  const productImageCallback = useCallback(() => {
-    return typeof product?.images[0] === 'string'
-      ? product?.images[0]
-      : product?.images[0].file.url
-  }, [product.images])
+  console.log("product", product);
 
-  const productImage = productImageCallback()
+  const productImageCallback = useCallback(() => {
+    return typeof product?.images[0] === "string"
+      ? product?.images[0]
+      : product?.images[0].file.url;
+  }, [product?.images]);
+
+  const productImage = productImageCallback();
   return (
     <>
       {product !== undefined || product !== null ? (
@@ -64,5 +66,5 @@ export default function InvoiceList({ currency, product, item }: any) {
         </tr>
       )}
     </>
-  )
+  );
 }
