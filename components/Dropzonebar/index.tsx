@@ -1,19 +1,19 @@
 /* eslint-disable no-nested-ternary */
-import Dropzonebarlist from '@/components/Dropzonebar/Dropzonebarlist'
-import type { progressStateType } from '@/typings/types'
+import Dropzonebarlist from "@/components/Dropzonebar/Dropzonebarlist";
+import type { progressStateType } from "@/typings";
 
 interface DropzonebarType {
-  progress?: progressStateType
+  progress?: progressStateType;
   dropzone: {
-    getRootProps: any
-    acceptedFiles: File[]
-    getInputProps: any
-    isDragActive: boolean
-  }
-  fileType: 'csv' | 'image' | 'images'
-  style: unknown
-  uploadStatus: boolean | null
-  message?: string
+    getRootProps: any;
+    acceptedFiles: File[];
+    getInputProps: any;
+    isDragActive: boolean;
+  };
+  fileType: "csv" | "image" | "images";
+  style: unknown;
+  uploadStatus: boolean | null;
+  message?: string;
 }
 
 export default function Dropzonebar({
@@ -24,17 +24,17 @@ export default function Dropzonebar({
   uploadStatus,
   message,
 }: DropzonebarType) {
-  const { getRootProps, acceptedFiles, getInputProps, isDragActive } = dropzone
-  let percentage: any
+  const { getRootProps, acceptedFiles, getInputProps, isDragActive } = dropzone;
+  let percentage: any;
   if (progress?.uploaded && progress?.total > 0) {
-    percentage = Math.floor((progress.uploaded / progress.total) * 100)
+    percentage = Math.floor((progress.uploaded / progress.total) * 100);
   }
   const fileTypeText =
-    fileType === 'csv'
-      ? 'csv file, or click to select csv file'
-      : fileType === 'images'
-      ? 'image here, you can upload multiple images or click to select image(s)'
-      : 'image here or click to select the image'
+    fileType === "csv"
+      ? "csv file, or click to select csv file"
+      : fileType === "images"
+      ? "image here, you can upload multiple images or click to select image(s)"
+      : "image here or click to select the image";
   return (
     <>
       <div className="upload mt-8">
@@ -80,8 +80,8 @@ export default function Dropzonebar({
             height: 100%;
             width: 100%;
             background-color: ${isDragActive
-              ? 'var(--color-3)'
-              : 'var(--color-4)'};
+              ? "var(--color-3)"
+              : "var(--color-4)"};
             padding: 10px;
             margin-top: 10px;
           }
@@ -110,5 +110,5 @@ export default function Dropzonebar({
         `}
       </style>
     </>
-  )
+  );
 }

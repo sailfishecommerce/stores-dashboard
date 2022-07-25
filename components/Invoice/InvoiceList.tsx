@@ -11,13 +11,16 @@ export default function InvoiceList({ currency, product, item }: any) {
   }, [product?.images]);
 
   const productImage = productImageCallback();
+
+  console.log("productImage", productImage);
+
   return (
     <>
       {product !== undefined || product !== null ? (
         <tr className="view hover:bg-gray-100 border-b py-2">
           <td className="w-1/2">
             <div className="product-view flex items-center">
-              <Image
+              <img
                 src={productImage}
                 alt={product?.name}
                 height={150}
@@ -47,7 +50,7 @@ export default function InvoiceList({ currency, product, item }: any) {
               </div>
             )}
           </td>
-          <td className="w-1/6 text-cventer">
+          <td className="w-1/6 text-center">
             <p className="font-medium text-md quantity">{item.quantity}</p>
           </td>
           <td className="w-1/6 text-center">

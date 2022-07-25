@@ -3,7 +3,7 @@ import { useCallback, useMemo } from "react";
 import { useDropzone } from "react-dropzone";
 
 import { styles } from "@/components/Admin/styles";
-import type { blogFormDataType } from "@/typings/types";
+import type { blogFormDataType } from "@/typings";
 import useUploadMediaToCloudinary from "@/hooks/useUploadMediaToCloudinary";
 
 export default function useMediaUpload(
@@ -15,7 +15,7 @@ export default function useMediaUpload(
   const normalMediaUpload = useCallback((acceptedFiles: any) => {
     uploadMedia(acceptedFiles);
   }, []);
- 
+
   const blogAuthorMediaUpload = useCallback(
     (acceptedFiles: any) => {
       if (shouldUpload && acceptedFiles) {

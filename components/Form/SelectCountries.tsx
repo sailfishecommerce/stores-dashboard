@@ -1,47 +1,47 @@
 /* eslint-disable unused-imports/no-unused-vars */
 /* eslint-disable jsx-a11y/no-onchange */
-import type { FormikProps } from 'formik'
-import { useAtom } from 'jotai'
+import type { FormikProps } from "formik";
+import { useAtom } from "jotai";
 
-import countries from '@/json/countries.json'
-import { countryAtom } from '@/utils/atomConfig'
-import type { formType } from '@/typings/types'
+import countries from "@/json/countries.json";
+import { countryAtom } from "@/utils/atomConfig";
+import type { formType } from "@/typings";
 
 type countriesType = {
-  name: string
-  Iso2: any | string
-  Iso3: string | null
-}
+  name: string;
+  Iso2: any | string;
+  Iso3: string | null;
+};
 
 interface SelectCountriesProps {
   content: {
-    name: string
-    label: string
-  }
-  formik: FormikProps<formType>
+    name: string;
+    label: string;
+  };
+  formik: FormikProps<formType>;
 }
 
 export default function SelectCountries({
   content,
   formik,
 }: SelectCountriesProps) {
-  const [, setCountry] = useAtom(countryAtom)
+  const [, setCountry] = useAtom(countryAtom);
   const validCountry: countriesType[] = countries.data?.filter(
     (country) => country.Iso2
-  )
+  );
   function selectHandler(e: any) {
-    const country = e.target.value.toLowerCase()
+    const country = e.target.value.toLowerCase();
     const selectedCountryArray = countries.data?.filter(
       (countryItem) => countryItem.Iso2 === e.target.value
-    )
+    );
     const payload = {
       country,
-    }
+    };
     formik.setValues({
       ...formik.values,
       ...payload,
-    })
-    setCountry(payload)
+    });
+    setCountry(payload);
   }
 
   return (
@@ -83,5 +83,5 @@ export default function SelectCountries({
           formik.errors.country}
       </p>
     </div>
-  )
+  );
 }

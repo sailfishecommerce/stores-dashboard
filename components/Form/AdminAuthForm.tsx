@@ -4,7 +4,6 @@ import { displayFormElement } from "@/components/Form/FormElement";
 import { adminSigninFormSchema } from "@/components/Form/Schema/AuthSchema";
 import useAuthMutation from "@/hooks/useAuthMutation";
 import formContent from "@/json/admin-login-form.json";
-import { useEffect } from "react";
 
 interface Props {
   type: "signin" | "signup";
