@@ -8,9 +8,10 @@ import useCSVDropzone from "@/hooks/useCSVDropzone";
 import useToast from "@/hooks/useToast";
 import uploadCSV from "@/utils/uploadCSV";
 import { selectStoreAtom } from "@/utils/atomConfig";
+import SelectStore from "@/components/Admin/SelectStore";
 
 export default function UploadToSwellFromAirtable() {
-  const [selectStore, setSelectStore] = useAtom(selectStoreAtom);
+  const [selectStore] = useAtom(selectStoreAtom);
   const disableDropdzone = selectStore === null ? true : false;
   const { progress, dropzone, style, isUploadSuccessful } = useCSVDropzone(
     uploadCSV,
@@ -34,10 +35,6 @@ export default function UploadToSwellFromAirtable() {
     }
   }, [progress.error]);
 
-  function selectHandler(e: any) {
-    setSelectStore(e.target.value);
-  }
-
   return (
     <div className="w-4/5 mx-auto mt-10">
       <h1 className="text-center text-2xl">
@@ -49,16 +46,7 @@ export default function UploadToSwellFromAirtable() {
       <p className="text-lg mt-4 text-center">
         For effective upload, Upload a maximum of 500 products at a time
       </p>
-      <div className="select-store flex items-center mt-3">
-        <h4 className="font-bold text-xl">Upload to Store</h4>
-        <select className="ml-4" onChange={selectHandler}>
-          <option>Select store</option>
-          <option value="livehealthy">Live Healthy store</option>
-          <option value="docsupplies">Docsupplies store</option>
-          <option value="sailfish">Sailfish store</option>
-          <option value="luxury_of_australia">Luxury of Australia store</option>
-        </select>
-      </div>
+      <SelectStore />
       <Dropzonebar
         progress={progress}
         style={style}
