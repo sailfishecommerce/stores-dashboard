@@ -49,11 +49,14 @@ export default function UploadToSwellFromAirtable() {
       <p className="text-lg mt-4 text-center">
         For effective upload, Upload a maximum of 500 products at a time
       </p>
-      <div className="select-store flex items-center">
-        <h4 className="font-bold text-xl">Select Store</h4>
+      <div className="select-store flex items-center mt-3">
+        <h4 className="font-bold text-xl">Upload to Store</h4>
         <select className="ml-4" onChange={selectHandler}>
+          <option>Select store</option>
           <option value="livehealthy">Live Healthy store</option>
           <option value="docsupplies">Docsupplies store</option>
+          <option value="sailfish">Sailfish store</option>
+          <option value="luxury_of_australia">Luxury of Australia store</option>
         </select>
       </div>
       <Dropzonebar

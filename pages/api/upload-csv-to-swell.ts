@@ -14,7 +14,7 @@ export default async function UploadProductToSwellHandler(
   res: NextApiResponse
 ) {
   swellNodeInit();
-  const productData = req                                                                                             .body.dataItem;
+  const productData = req.body.dataItem;
   const total = req.body.numberOfProducts;
   const formatUrl = productData["Image Src"]?.split(";");
   const formatUrlArray = await formattedUrlArray(formatUrl, productData);
