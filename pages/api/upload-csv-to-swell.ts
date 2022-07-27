@@ -25,9 +25,11 @@ export default async function UploadProductToSwellHandler(
 
   switch (req.method) {
     case "POST": {
+      console.log("In progress");
       return await swell
         .post("/products", swellProducts)
         .then((response: any) => {
+          console.log("post-product-response", response);
           if (!response?.errors) {
             const formattedCategories = hierarchicalCategory(
               response.product_categories
@@ -48,11 +50,13 @@ export default async function UploadProductToSwellHandler(
                 console.log("error", error);
                 return res.status(400).json(error);
               });
+          } else {
+            return res.status(400).json(response?.errors);
           }
         })
         .catch((error: any) => {
           console.error("error createSwellProductHandler", error);
-          throw Error(error);
+          return res.status(400).json(error);
         });
     }
     default:

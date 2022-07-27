@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef } from "react";
-import { toast } from "react-toastify";
 import { useAtom } from "jotai";
 
 import Dropzonebar from "@/components/Dropzonebar";
@@ -13,7 +12,7 @@ import SelectStore from "@/components/Admin/SelectStore";
 export default function UploadToSwellFromAirtable() {
   const [selectStore] = useAtom(selectStoreAtom);
   const disableDropdzone = selectStore === null ? true : false;
-  const { progress, dropzone, style, isUploadSuccessful } = useCSVDropzone(
+  const { progress, dropzone, style, isUploadSuccessful }: any = useCSVDropzone(
     uploadCSV,
     disableDropdzone
   );
@@ -29,9 +28,9 @@ export default function UploadToSwellFromAirtable() {
   }, [progress.loading]);
 
   useEffect(() => {
-    toast.error(progress.error);
+    updateToast(toastID, "error", progress.error);
     if (progress.uploaded > 0) {
-      toast.success(`${progress.uploaded} products uploaded`);
+      updateToast(toastID, "success", `${progress.uploaded} products uploaded`);
     }
   }, [progress.error]);
 
