@@ -2,19 +2,23 @@
 import axios from "axios";
 
 import type { progressStateType } from "@/typings";
+import { applicationDetailsType } from "@/hooks/useAlgoliaIndex";
 
 export default function uploadCSV(
   results: { data: any[] },
   setProgress: any,
   progress: progressStateType,
-  setIsUploadSuccessful: any
+  setIsUploadSuccessful: any,
+  appDetails: applicationDetailsType
 ) {
   setProgress({ ...progress, loading: true });
+
   const promises = results.data.map((dataItem: any) => {
     return axios
       .post("/api/upload-csv-to-swell", {
         dataItem,
         numberOfProducts: results.data.length,
+        appDetails,
       })
       .then((response) => {
         setProgress((prevState: progressStateType) => ({

@@ -5,12 +5,16 @@ import { useDropzone } from "react-dropzone";
 
 import { styles } from "@/components/Admin/styles";
 import type { progressStateType } from "@/typings";
+import useAlgoliaIndex, {
+  applicationDetailsType,
+} from "@/hooks/useAlgoliaIndex";
 
 type uploadCSVType = (
   results: { data: any[] },
   setProgress: any,
   progress: progressStateType,
-  setIsUploadSuccessful: any
+  setIsUploadSuccessful: any,
+  appDetails: applicationDetailsType
 ) => void;
 
 export default function useCSVDropzone(
@@ -18,6 +22,7 @@ export default function useCSVDropzone(
   disableDropzone?: boolean
 ) {
   const [isUploadSuccessful, setIsUploadSuccessful] = useState(null);
+  const { appDetails } = useAlgoliaIndex();
 
   const [progress, setProgress] = useState({
     uploaded: 0,
@@ -32,7 +37,13 @@ export default function useCSVDropzone(
       header: true,
       skipEmptyLines: true,
       complete: (results: any) => {
-        uploadCSV(results, setProgress, progress, setIsUploadSuccessful);
+        uploadCSV(
+          results,
+          setProgress,
+          progress,
+          setIsUploadSuccessful,
+          appDetails
+        );
       },
     });
   }, []);

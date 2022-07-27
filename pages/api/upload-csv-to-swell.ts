@@ -8,7 +8,6 @@ import swellNodeInit from "@/utils/swellNode";
 import toShopifyProductModel from "@/utils/toShopifyProductModel";
 import formattedUrlArray from "@/hooks/useFormatProductImage";
 import { hierarchicalCategory } from "@/utils/formatToAlgolia";
-import useAlgoliaIndex from "@/hooks/useAlgoliaIndex";
 
 export default async function UploadProductToSwellHandler(
   req: NextApiRequest,
@@ -20,11 +19,9 @@ export default async function UploadProductToSwellHandler(
   const formatUrl = productData["Image Src"]?.split(";");
   const formatUrlArray = await formattedUrlArray(formatUrl, productData);
   const swellProducts = toShopifyProductModel(productData, formatUrlArray);
-  const { appDetails } = useAlgoliaIndex();
+  const appDetails = req.body.appDetails;
   const client = algoliasearch(appDetails.ID, appDetails.ADMIN_API_KEY);
   const index = client.initIndex(appDetails.INDEX_NAME);
-
-  console.log("applicationDetails", appDetails);
 
   switch (req.method) {
     case "POST": {

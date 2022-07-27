@@ -5,13 +5,12 @@ import useAlgoliaIndex from "@/hooks/useAlgoliaIndex";
 
 export default function SelectStore() {
   const [selectStore, setSelectStore] = useAtom(selectStoreAtom);
-  const { setActiveStore, appDetails } = useAlgoliaIndex();
+  const { setActiveStore } = useAlgoliaIndex();
+
   function selectHandler(e: any) {
     setSelectStore(e.target.value);
     setActiveStore(e.target.value);
   }
-
-  console.log("applicationDetails", appDetails);
 
   function formatSelectedStore(selectedStore: string) {
     switch (selectedStore) {
