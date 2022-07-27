@@ -35,11 +35,15 @@ export default function uploadCSV(
         }));
       })
       .catch((error: any) => {
-        console.log("error-uploadAirtableCSV", error);
-        console.log(
-          "error-uploadAirtableCSV-formatede",
-          error?.response.data?.sku?.message
-        );
+        if (error.response) {
+          toast.error(
+            `product-${currentIndex},  ${error?.response.data?.sku?.message}`
+          );
+        } else if (error.message) {
+          toast.error(
+            `${error?.message}-Network issues, product-${currentIndex}`
+          );
+        }
         return setProgress({
           ...progress,
           error: error.response
@@ -49,6 +53,7 @@ export default function uploadCSV(
         });
       });
   });
+
   Promise.all(promises)
     .then((response) => {
       console.log("response-promise-all", response);
