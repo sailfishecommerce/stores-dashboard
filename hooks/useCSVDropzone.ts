@@ -8,6 +8,8 @@ import type { progressStateType } from "@/typings";
 import useAlgoliaIndex, {
   applicationDetailsType,
 } from "@/hooks/useAlgoliaIndex";
+import { useAtom } from "jotai";
+import { selectStoreAtom } from "@/utils/atomConfig";
 
 type uploadCSVType = (
   results: { data: any[] },
@@ -22,6 +24,7 @@ export default function useCSVDropzone(
   disableDropzone?: boolean
 ) {
   const [isUploadSuccessful, setIsUploadSuccessful] = useState(null);
+  const [selectStore] = useAtom(selectStoreAtom);
   const { appDetails } = useAlgoliaIndex();
 
   console.log("appDetails", appDetails);
@@ -33,22 +36,25 @@ export default function useCSVDropzone(
     error: null,
   });
 
-  const onDrop = useCallback((acceptedFiles: any) => {
-    const csvFile = acceptedFiles[0];
-    Papa.parse(csvFile, {
-      header: true,
-      skipEmptyLines: true,
-      complete: (results: any) => {
-        uploadCSV(
-          results,
-          setProgress,
-          progress,
-          setIsUploadSuccessful,
-          appDetails
-        );
-      },
-    });
-  }, []);
+  const onDrop = useCallback(
+    (acceptedFiles: any) => {
+      const csvFile = acceptedFiles[0];
+      Papa.parse(csvFile, {
+        header: true,
+        skipEmptyLines: true,
+        complete: (results: any) => {
+          uploadCSV(
+            results,
+            setProgress,
+            progress,
+            setIsUploadSuccessful,
+            appDetails
+          );
+        },
+      });
+    },
+    [selectStore]
+  );
 
   const dropzone = useDropzone({
     disabled: disableDropzone,
