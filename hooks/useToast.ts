@@ -20,7 +20,7 @@ export default function useToast() {
     toastType?: any,
     message?: string
   ) => {
-    const autoCloseStatus = toastType === "success" ? 800 : false;
+    const autoCloseStatus = toastType === "success" ? 800 : 1000;
     setAppLoading(false);
     return toast.update(toastId.current, {
       type: toastType,

@@ -15,6 +15,7 @@ export default function uploadCSV(
   setProgress({ ...progress, loading: true });
 
   const promises = results.data.map((dataItem: any, index) => {
+    const currentIndex = index + 1;
     return axios
       .post("/api/upload-csv-to-swell", {
         dataItem,
@@ -39,20 +40,11 @@ export default function uploadCSV(
           "error-uploadAirtableCSV-formatede",
           error?.response.data?.sku?.message
         );
-        if (error.message) {
-          toast.error(error?.message);
-        } else if (error.response) {
-          toast.error(
-            `product-${Number(index) + 1},  ${
-              error?.response.data?.sku?.message
-            }`
-          );
-        }
         return setProgress({
           ...progress,
-          error: error.message
-            ? error.message
-            : error?.response.data?.sku?.message,
+          error: error.response
+            ? `product-${currentIndex},  ${error?.response.data?.sku?.message}`
+            : `${error?.message}-Network issues, product-${currentIndex}`,
           loading: false,
         });
       });

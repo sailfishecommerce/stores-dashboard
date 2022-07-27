@@ -23,6 +23,8 @@ export default async function UploadProductToSwellHandler(
   const client = algoliasearch(appDetails.ID, appDetails.ADMIN_API_KEY);
   const index = client.initIndex(appDetails.INDEX_NAME);
 
+  console.log("formatUrlArray", formatUrlArray);
+
   switch (req.method) {
     case "POST": {
       console.log("In progress");
