@@ -32,3 +32,18 @@ export function formatAlgoliaDetails(selectedIndexname: string) {
       };
   }
 }
+
+export function formatStoreName(storeName: string) {
+  switch (storeName) {
+    case "LIVEHEALTHY_PRODUCTION_INDEX":
+      return "livehealthy";
+    case "docsupplies_products":
+      return "docsupplies";
+    case "SAILFISH_INDEX":
+      return "sailfish";
+    case "LUXURYOFAUSTRALIA_INDEX":
+      return "luxury_of_australia";
+    default:
+      return "livehealthy";
+  }
+}

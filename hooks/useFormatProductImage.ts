@@ -1,16 +1,16 @@
 /* eslint-disable prefer-const */
 /* eslint-disable dot-notation */
 /* eslint-disable @typescript-eslint/no-shadow */
-import axios from 'axios'
-import imagemin from 'imagemin'
-import imageminWebp from 'imagemin-webp'
-import sharp from 'sharp'
+import axios from "axios";
+import imagemin from "imagemin";
+import imageminWebp from "imagemin-webp";
+import sharp from "sharp";
 
 async function formatProductImage(url: string, name: string, index: number) {
-  const formattedName = `${name.replace(/ /g, '-').toLowerCase()}-${index}`
+  const formattedName = `${name.replace(/ /g, "-").toLowerCase()}-${index}`;
   return await axios
     .get(url, {
-      responseType: 'arraybuffer',
+      responseType: "arraybuffer",
     })
     .then((response) =>
       sharp(response.data)
@@ -23,38 +23,39 @@ async function formatProductImage(url: string, name: string, index: number) {
                 quality: 40,
               }),
             ],
-          })
+          });
         })
         .then((response: any) => {
-          let imageData: any = {}
+          let imageData: any = {};
           imageData.file = {
             data: {
-              $binary: response.toString('base64'),
-              $type: '00',
+              $binary: response.toString("base64"),
+              $type: "00",
             },
             filename: formattedName,
-            content_type: 'image/webp',
+            content_type: "image/webp",
             width: 800,
             height: 800,
-          }
-          return imageData
+          };
+          return imageData;
         })
-    )
+    );
 }
 
 const formattedUrlArray = (formattedUrl: string[], record: any) => {
-  const urlArray = formattedUrl.map((imageUrl: string, index: number) => {
+  console.log("formattedUrl", formattedUrl);
+  const urlArray = formattedUrl?.map((imageUrl: string, index: number) => {
     const formatUrl = imageUrl.includes(
-      'http://host-62-113-119-20.hosted-by-vdsina.ru/Pictures'
+      "http://host-62-113-119-20.hosted-by-vdsina.ru/Pictures"
     )
       ? imageUrl.replace(
-          'http://host-62-113-119-20.hosted-by-vdsina.ru/Pictures',
-          'http://cwh-pictures-shopify.s3.us-east-2.amazonaws.com'
+          "http://host-62-113-119-20.hosted-by-vdsina.ru/Pictures",
+          "http://cwh-pictures-shopify.s3.us-east-2.amazonaws.com"
         )
-      : imageUrl
+      : imageUrl;
 
-    return formatProductImage(formatUrl, record['Title'], index)
-  })
-  return Promise.all(urlArray)
-}
-export default formattedUrlArray
+    return formatProductImage(formatUrl, record["Title"], index);
+  });
+  return Promise.all(urlArray);
+};
+export default formattedUrlArray;
