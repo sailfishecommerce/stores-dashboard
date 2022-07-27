@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 
 import DashboardMainView from "@/components/Dashboard/DashboardMainView";
 import DashboardLayout from "@/layouts/dashboard-layout";
+import useAlgoliaIndex from "@/hooks/useAlgoliaIndex";
 
 const DynamicUploadToSwellFromAirtable = dynamic(
   () =>
@@ -12,6 +13,9 @@ const DynamicUploadToSwellFromAirtable = dynamic(
 );
 
 export default function UploadProducts() {
+  const { appDetails } = useAlgoliaIndex();
+  console.log("applicationDetails", appDetails);
+
   return (
     <DashboardLayout title="Admin page">
       <DashboardMainView>

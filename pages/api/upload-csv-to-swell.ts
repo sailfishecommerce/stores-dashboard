@@ -20,14 +20,11 @@ export default async function UploadProductToSwellHandler(
   const formatUrl = productData["Image Src"]?.split(";");
   const formatUrlArray = await formattedUrlArray(formatUrl, productData);
   const swellProducts = toShopifyProductModel(productData, formatUrlArray);
-  const { applicationDetails } = useAlgoliaIndex();
-  const client = algoliasearch(
-    applicationDetails.ID,
-    applicationDetails.ADMIN_API_KEY
-  );
-  const index = client.initIndex(applicationDetails.INDEX_NAME);
+  const { appDetails } = useAlgoliaIndex();
+  const client = algoliasearch(appDetails.ID, appDetails.ADMIN_API_KEY);
+  const index = client.initIndex(appDetails.INDEX_NAME);
 
-  console.log("applicationDetails", applicationDetails);
+  console.log("applicationDetails", appDetails);
 
   switch (req.method) {
     case "POST": {
