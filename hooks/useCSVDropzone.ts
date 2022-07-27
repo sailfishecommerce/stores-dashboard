@@ -42,7 +42,7 @@ export default function useCSVDropzone(
     onDrop,
     accept: {
       "text/csv": [
-        ".csv, text/csv, application/vnd.ms-excel, application/csv, text/x-csv, application/x-csv, text/comma-separated-values, text/x-comma-separated-values",
+        ".csv, application/vnd.ms-excel, application/csv, text/x-csv, application/x-csv, text/comma-separated-values, text/x-comma-separated-values",
       ],
     },
   });
