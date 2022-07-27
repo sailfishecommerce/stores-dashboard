@@ -70,24 +70,14 @@ export default function InvoicePage({ invoice }: any) {
               </tr>
             </thead>
             <tbody>
-              {invoice.items.map((item: any) => {
-                let product;
-                if (invoice.products !== null) {
-                  product = invoice?.products?.filter(
-                    (productItem: any) => productItem.id === item.product_id
-                  )[0];
-                } else {
-                  product = null;
-                }
-                return (
-                  <InvoiceList
-                    key={item.id}
-                    product={product}
-                    item={item}
-                    currency={invoice.currency}
-                  />
-                );
-              })}
+              {invoice.items.map((item: any) => (
+                <InvoiceList
+                  key={item.id}
+                  productId={item?.product_id}
+                  quantity={item?.quantity}
+                  priceTotal={item?.price_total}
+                />
+              ))}
               <tr className="subtotal">
                 <td></td>
                 <td></td>

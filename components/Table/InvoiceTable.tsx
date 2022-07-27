@@ -22,8 +22,6 @@ export default function InvoiceTable({
   const { tableInstance } = useAdminInvoice(stripeData, selectRow);
   const [, setPaymentInvoice] = useAtom(paymentInvoiceAtom);
 
-  console.log("stripeData", stripeData);
-
   const {
     getTableProps,
     headerGroups,
