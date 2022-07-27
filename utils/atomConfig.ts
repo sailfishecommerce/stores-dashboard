@@ -38,5 +38,12 @@ export const blogAuthorFormAtom = atom<blogFormDataType>({
   },
 });
 
+type selectStoreAtomType =
+  | null
+  | "livehealthy"
+  | "docsupplies"
+  | "sailfish"
+  | "luxury_of_australia";
+
 //
-export const selectStoreAtom = atom(null);
+export const selectStoreAtom = atom<selectStoreAtomType>(null);

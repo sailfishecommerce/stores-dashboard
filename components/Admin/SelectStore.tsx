@@ -27,7 +27,7 @@ export default function SelectStore() {
   return (
     <div className="select-store flex flex-col mt-3">
       <div className="row-1 flex">
-        <h4 className="font-bold text-xl">Upload to Store</h4>
+        <h4 className="font-semibold text-xl">Upload to Store</h4>
         <select className="ml-4" onChange={selectHandler}>
           <option>Select store</option>
           <option value="livehealthy">Live Healthy store</option>
@@ -37,7 +37,7 @@ export default function SelectStore() {
         </select>
       </div>
       {selectStore && (
-        <h4 className="font-bold text-xl mt-1">
+        <h4 className="font-semibold text-xl mt-1">
           Active store:
           <span className=" text-green-500 ml-1">
             {formatSelectedStore(selectStore)}
