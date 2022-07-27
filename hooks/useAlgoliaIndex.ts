@@ -1,4 +1,7 @@
-import { useState } from "react";
+import { useAtom } from "jotai";
+
+import { appDetailsAtom } from "@/utils/atomConfig";
+import { formatAlgoliaDetails } from "@/utils/formatAlgoliaDetails";
 
 export type applicationDetailsType = {
   ID: string;
@@ -7,45 +10,11 @@ export type applicationDetailsType = {
 };
 
 export default function useAlgoliaIndex() {
-  const [appDetails, setAppDetails] = useState<applicationDetailsType>({
-    ID: `${process.env.NEXT_PUBLIC_INSTANTSEARCH_APP_ID}`,
-    ADMIN_API_KEY: `${process.env.NEXT_PUBLIC_ALGOLIA_ADMIN_API_KEY}`,
-    INDEX_NAME: `${process.env.NEXT_PUBLIC_INSTANTSEARCH_INDEX_NAME}`,
-  });
+  const [appDetails, setAppDetails] = useAtom(appDetailsAtom);
 
   function setActiveStore(activeStoreName: string) {
-    switch (activeStoreName) {
-      case "livehealthy":
-        return setAppDetails({
-          ID: `${process.env.NEXT_PUBLIC_INSTANTSEARCH_APP_ID}`,
-          ADMIN_API_KEY: `${process.env.NEXT_PUBLIC_ALGOLIA_ADMIN_API_KEY}`,
-          INDEX_NAME: `${process.env.NEXT_PUBLIC_INSTANTSEARCH_INDEX_NAME}`,
-        });
-      case "docsupplies":
-        return setAppDetails({
-          ID: `${process.env.NEXT_PUBLIC_DOCSUPPLIES_INSTANTSEARCH_APP_ID}`,
-          ADMIN_API_KEY: `${process.env.NEXT_PUBLIC_DOCSUPPLIES_ALGOLIA_ADMIN_API_KEY}`,
-          INDEX_NAME: `${process.env.NEXT_PUBLIC_DOCSUPPLIES_INSTANTSEARCH_INDEX_NAME}`,
-        });
-      case "sailfish":
-        return setAppDetails({
-          ID: `${process.env.NEXT_PUBLIC_SAILFISH_INSTANTSEARCH_APP_ID}`,
-          ADMIN_API_KEY: `${process.env.NEXT_PUBLIC_SAILFISH_ALGOLIA_ADMIN_API_KEY}`,
-          INDEX_NAME: `${process.env.NEXT_PUBLIC_SAILFISH_INSTANTSEARCH_INDEX_NAME}`,
-        });
-      case "luxury_of_australia":
-        return setAppDetails({
-          ID: `${process.env.NEXT_PUBLIC_LUXURYOFAUSTRALIA_INSTANTSEARCH_APP_ID}`,
-          ADMIN_API_KEY: `${process.env.NEXT_PUBLIC_LUXURYOFAUSTRALIA_ALGOLIA_ADMIN_API_KEY}`,
-          INDEX_NAME: `${process.env.NEXT_PUBLIC_LUXURYOFAUSTRALIA_INSTANTSEARCH_INDEX_NAME}`,
-        });
-      default:
-        return setAppDetails({
-          ID: `${process.env.NEXT_PUBLIC_INSTANTSEARCH_APP_ID}`,
-          ADMIN_API_KEY: `${process.env.NEXT_PUBLIC_ALGOLIA_ADMIN_API_KEY}`,
-          INDEX_NAME: `${process.env.NEXT_PUBLIC_INSTANTSEARCH_INDEX_NAME}`,
-        });
-    }
+    const activeStoreData = formatAlgoliaDetails(activeStoreName);
+    setAppDetails(activeStoreData);
   }
 
   return {

@@ -2,6 +2,7 @@ import { atom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 
 import type { blogFormDataType } from "@/typings";
+import { applicationDetailsType } from "@/hooks/useAlgoliaIndex";
 
 // ui-state
 export const appLoadingAtom = atom(false);
@@ -47,3 +48,8 @@ type selectStoreAtomType =
 
 //
 export const selectStoreAtom = atom<selectStoreAtomType>(null);
+export const appDetailsAtom = atom<applicationDetailsType>({
+  ID: `${process.env.NEXT_PUBLIC_INSTANTSEARCH_APP_ID}`,
+  ADMIN_API_KEY: `${process.env.NEXT_PUBLIC_ALGOLIA_ADMIN_API_KEY}`,
+  INDEX_NAME: `${process.env.NEXT_PUBLIC_INSTANTSEARCH_INDEX_NAME}`,
+});

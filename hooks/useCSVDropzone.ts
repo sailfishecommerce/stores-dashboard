@@ -24,6 +24,8 @@ export default function useCSVDropzone(
   const [isUploadSuccessful, setIsUploadSuccessful] = useState(null);
   const { appDetails } = useAlgoliaIndex();
 
+  console.log("appDetails", appDetails);
+
   const [progress, setProgress] = useState({
     uploaded: 0,
     total: 0,
