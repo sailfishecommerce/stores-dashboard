@@ -1,20 +1,20 @@
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 
-import AirwallexInvoiceList from '@/components/Invoice/AirwallexInvoiceList'
-import InvoiceFooter from '@/components/Invoice/InvoiceFooter'
-import FormattedPrice from '@/components/Price/FormattedPrice'
-import { formatOrderDate } from '@/utils/formatOrderDate'
-import getCountry from '@/utils/getCountry'
+import AirwallexInvoiceList from "@/components/Invoice/AirwallexInvoiceList";
+import InvoiceFooter from "@/components/Invoice/InvoiceFooter";
+import FormattedPrice from "@/components/Price/FormattedPrice";
+import { formatOrderDate } from "@/utils/formatOrderDate";
+import getCountry from "@/utils/getCountry";
 
 const DynamicLogo = dynamic(() => import("@/components/Logo"), {
   ssr: false,
 });
 
-const style = { width: '100%' }
+const style = { width: "100%" };
 
 export default function AirwallexInvoicePage({ invoice }: any) {
-  const paymentMethod = `Airwallex ${invoice?.latest_payment_attempt?.id.toUpperCase()}`
-  const customerName = `${invoice?.order?.shipping?.first_name} ${invoice.order.shipping.last_name}`
+  const paymentMethod = `Airwallex ${invoice?.latest_payment_attempt?.id.toUpperCase()}`;
+  const customerName = `${invoice?.order?.shipping?.first_name} ${invoice.order.shipping.last_name}`;
   return (
     <>
       <div
@@ -33,15 +33,10 @@ export default function AirwallexInvoicePage({ invoice }: any) {
         <div className="row details grid grid-cols-3">
           <div className="shipping-address">
             <h1 className="font-semibold text-lg my-2">SHIPPING ADDRESS</h1>
-            <p className="font-thin">
-              {`${invoice.order.shipping.address.postcode} , ${invoice.order.shipping.address.street}`}
-            </p>
-            <p className="font-thin">
-              {`${invoice.order.shipping.address.city} ${invoice.order.shipping.address.state}`}
-            </p>
-            <p className="font-thin">
-              {getCountry(invoice.order.shipping.address.country_code)}
-            </p>
+            <p className="font-light">Flat B, 16/F-Tower 7, </p>
+            <p className="font-light">The Beaumount, 8 Shek Kok Road,</p>
+            <p className="font-light">Kennedy town,</p>
+            <p className="font-light">Hong Kong</p>
           </div>
           <div className="customer">
             <h1 className="font-semibold text-lg my-2">CUSTOMER</h1>

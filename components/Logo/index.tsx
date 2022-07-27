@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { memo, useEffect, useState } from "react";
 
@@ -23,13 +22,7 @@ function LogoComponent({ className }: LogoProps) {
     <div>
       <Link passHref href="/">
         <a title="welcome to live healthy" className={logoClassName}>
-          <Image
-            src={logoURL}
-            alt="logo"
-            height={50}
-            width={150}
-            layout="responsive"
-          />
+          <img src={logoURL} alt="logo" height={50} width={150} />
         </a>
       </Link>
     </div>

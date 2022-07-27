@@ -1,22 +1,22 @@
-import FacebookIconFill from '@/components/Icons/FacebookIconFill'
+import FacebookIconFill from "@/components/Icons/FacebookIconFill";
 
 export default function InvoiceFooter() {
   return (
     <div className="gratitude mt-4 flex flex-col">
-      <p className="text-center my-1 text-lg font-thin">
+      <p className="text-center my-1 text-lg font-light">
         Thank you for being the best part of Live Healthy Stores!
       </p>
       <h4 className="text-center my-1 text-lg font-bold">
         Live Healthy Store HK
       </h4>
       <a
-        className="text-center my-1 font-thin text-lg"
+        className="text-center my-1 font-light text-lg"
         href="mailto:care@livehealthy.com.hk"
       >
         care@livehealthy.com.hk
       </a>
       <a
-        className="text-center font-thin text-lg"
+        className="text-center font-light text-lg"
         target="_blank"
         href="www.livehealthy.com.hk"
       >
@@ -26,5 +26,5 @@ export default function InvoiceFooter() {
         <FacebookIconFill /> <p className="ml-4">LiveHealthy Online Store</p>
       </div>
     </div>
-  )
+  );
 }

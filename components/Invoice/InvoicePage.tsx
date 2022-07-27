@@ -20,8 +20,8 @@ export default function InvoicePage({ invoice }: any) {
         style={style}
         className="invoice-receipt my-12 bg-white p-6 rounded-xl"
       >
-        <div className="row flex justify-between  mb-16 items-center">
-          <Logo className="w-1/6" />
+        <div className="row flex flex-row justify-between  mb-16 items-center">
+          <Logo className="w-1/2" />
           <div className="invoice-date flex flex-col">
             <h1 className="text-2xl font-bold">{invoice?.number}</h1>
             <h5 className="font-light text-lg">
