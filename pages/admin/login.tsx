@@ -1,12 +1,18 @@
 import Image from "next/image";
+import Head from "next/head";
 
 import AdminAuthForm from "@/components/Form/AdminAuthForm";
 import Logo from "@/components/Logo";
 import DefaultLayout from "@/layouts/default-layout";
+import Metatag from "@/components/Metatag";
 
 export default function AdminLoginPage() {
   return (
     <DefaultLayout>
+      <Metatag />
+      <Head>
+        <title>Login | Stores Dashboard</title>
+      </Head>
       <div className="w-full h-full flex login-page">
         <div className="image-container w-full lg:w-4/5 h-full">
           <Image

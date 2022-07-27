@@ -1,14 +1,14 @@
-import Head from 'next/head'
+import Head from "next/head";
 
 export default function Metatag() {
   return (
     <Head>
       {/* OG meta */}
       <meta property="og:site_name" content="Live Healthy Store HK" />
-      <meta property="og:url" content="https://livehealthy.hk/" />
+      <meta property="og:url" content="https://stores-dashboard.vercel.app/" />
       <meta
         property="og:title"
-        content="Live healthy Store - Quality Australian Products - Free Shipping to HK"
+        content="Admin | Live healthy Store - Quality Australian Products - Free Shipping to HK"
       />
       <meta property="og:type" content="website" />
       <meta
@@ -23,9 +23,12 @@ export default function Metatag() {
       />
 
       {/* Twitter meta */}
-      <meta name="twitter:site" content="@https://livehealthy.hk" />
+      <meta
+        name="twitter:site"
+        content="@https://stores-dashboard.vercel.app/"
+      />
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:url" content="https://www.livehealthy.hk" />
+      <meta name="twitter:url" content="https://stores-dashboard.vercel.app" />
       <meta
         name="twitter:image"
         content="http://res.cloudinary.com/verrb-inc/image/upload/v1656462729/live-healthy-store/logo_ynasny.webp"
@@ -36,13 +39,13 @@ export default function Metatag() {
       />
       <meta
         name="twitter:title"
-        content="Live Healthy Store HK - Quality Australian Products - Free Shipping to HK"
+        content="Admin |Live Healthy Store HK - Quality Australian Products - Free Shipping to HK"
       />
       <script type="application/ld+json">
         {`{
             "@context": "https://schema.org",
             "@type": "Organization",
-            "url":"https://livehealthy.hk/",
+            "url":"https://stores-dashboard.vercel.app",
             "content":"http://res.cloudinary.com/verrb-inc/image/upload/v1656462729/live-healthy-store/logo_ynasny.webp"
           }`}
       </script>
@@ -50,10 +53,10 @@ export default function Metatag() {
         {`{
             "@context": "https://schema.org",
             "@type": "Organization",
-            "url":"https://livehealthy.hk/",
+            "url":"https://stores-dashboard.vercel.app",
             "logo": "http://res.cloudinary.com/verrb-inc/image/upload/v1656462729/live-healthy-store/logo_ynasny.webp"
           }`}
       </script>
     </Head>
-  )
+  );
 }

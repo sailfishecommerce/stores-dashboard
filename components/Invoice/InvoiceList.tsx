@@ -13,6 +13,7 @@ export default function InvoiceList({ currency, product, item }: any) {
   const productImage = productImageCallback();
 
   console.log("productImage", productImage);
+  console.log("product", product);
 
   return (
     <>
