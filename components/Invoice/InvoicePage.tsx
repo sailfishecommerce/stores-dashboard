@@ -13,7 +13,7 @@ export default function InvoicePage({ invoice }: any) {
     ? `Stripe ${invoice?.billing?.intent?.stripe.id.toUpperCase()}`
     : "";
   const shippingMethod = getShippingMethod(invoice);
-  console.log("invoice", invoice);
+
   return (
     <>
       <div

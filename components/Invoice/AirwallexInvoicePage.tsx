@@ -15,6 +15,7 @@ const style = { width: "100%" };
 export default function AirwallexInvoicePage({ invoice }: any) {
   const paymentMethod = `Airwallex ${invoice?.latest_payment_attempt?.id.toUpperCase()}`;
   const customerName = `${invoice?.order?.shipping?.first_name} ${invoice.order.shipping.last_name}`;
+  console.log("invoice", invoice);
   return (
     <>
       <div
@@ -25,7 +26,7 @@ export default function AirwallexInvoicePage({ invoice }: any) {
           <DynamicLogo className="w-1/6" />
           <div className="invoice-date flex flex-col">
             <h1 className="text-2xl font-bold">{invoice?.id.toUpperCase()}</h1>
-            <h5 className="font-thin text-lg">
+            <h5 className="font-light text-lg">
               {formatOrderDate(invoice?.created_at)}
             </h5>
           </div>
@@ -40,11 +41,13 @@ export default function AirwallexInvoicePage({ invoice }: any) {
           </div>
           <div className="customer">
             <h1 className="font-semibold text-lg my-2">CUSTOMER</h1>
-            <p className="font-thin">{customerName}</p>
-            <p className="font-thin">{invoice.order.shipping.phone_number}</p>
-            <p className="font-thin">{invoice.order.shipping.address.street}</p>
-            <p className="font-thin">{`${invoice.order.shipping.address.postcode} ${invoice.order.shipping.address.city}`}</p>
-            <p className="font-thin">
+            <p className="font-light">{customerName}</p>
+            <p className="font-light">{invoice.order.shipping.phone_number}</p>
+            <p className="font-light">
+              {invoice.order.shipping.address.street}
+            </p>
+            <p className="font-light">{`${invoice.order.shipping.address.postcode} ${invoice.order.shipping.address.city}`}</p>
+            <p className="font-light">
               {` ${invoice.order.shipping.address.state} ${getCountry(
                 invoice.order.shipping.address.country_code
               )}`}
@@ -53,12 +56,12 @@ export default function AirwallexInvoicePage({ invoice }: any) {
           <div className="group">
             <div className="payment-method">
               <h1 className="font-semibold text-lg my-2">PAYMENT METHOD</h1>
-              <p className="font-thin">{paymentMethod}</p>
+              <p className="font-light">{paymentMethod}</p>
             </div>
             <div className="shipping-method">
               <h1 className="font-semibold text-lg my-2">SHIPPING METHOD</h1>
-              {/* <p className="font-thin">{shippingMethod[0]?.name}</p> */}
-              <p className="font-thin">COVID-19 might cause delays</p>
+              {/* <p className="font-light">{shippingMethod[0]?.name}</p> */}
+              <p className="font-light">COVID-19 might cause delays</p>
             </div>
           </div>
         </div>
@@ -84,13 +87,13 @@ export default function AirwallexInvoicePage({ invoice }: any) {
                 <td></td>
                 <td></td>
                 <td className="text-center">
-                  <p className="font-thin text-md">Subtotal</p>
+                  <p className="font-medium text-md">Subtotal</p>
                 </td>
                 <td className="text-center">
                   <FormattedPrice
                     currency={invoice.currency}
                     price={invoice.amount}
-                    className="text-md font-thin"
+                    className="text-md font-medium"
                   />
                 </td>
               </tr>{" "}
@@ -98,13 +101,13 @@ export default function AirwallexInvoicePage({ invoice }: any) {
                 <td></td>
                 <td></td>
                 <td className="text-center">
-                  <p className="font-thin text-md">Shipping</p>
+                  <p className="font-medium text-md">Shipping</p>
                 </td>
                 <td className="text-center">
                   <FormattedPrice
                     currency={invoice.currency}
                     price={0}
-                    className="text-md font-thin"
+                    className="text-md font-medium"
                   />
                 </td>
               </tr>

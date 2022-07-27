@@ -23,7 +23,7 @@ export default function InvoiceList({ productId, quantity, priceTotal }: any) {
                 src={getProductImage(data.images)}
                 alt={data?.name}
                 height={150}
-                width={200}
+                width={150}
               />
               <div className="content flex flex-col ml-2">
                 <h1 className="font-medium  text-md">{data?.name}</h1>
