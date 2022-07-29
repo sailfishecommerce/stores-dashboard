@@ -4,7 +4,7 @@ export default function Metatag() {
   return (
     <Head>
       {/* OG meta */}
-      <meta property="og:site_name" content="Live Healthy Store HK" />
+      <meta property="og:site_name" content="Admin | Live Healthy Store HK" />
       <meta property="og:url" content="https://stores-dashboard.vercel.app/" />
       <meta
         property="og:title"
